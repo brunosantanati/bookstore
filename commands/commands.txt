@@ -1,0 +1,3 @@
+cd C:\Users\bruana\Documents\Java9\bookstore
+javac src/br/com/casadocodigo/Main.java
+java -cp src/ br.com.casadocodigo.Main
