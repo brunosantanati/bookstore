@@ -1,3 +1,7 @@
+----------------------------------------------------
+CHAPTER 6 COMMANDS
+----------------------------------------------------
+
 cd C:\Users\bruana\Documents\Java9\bookstore
 javac src/br/com/casadocodigo/Main.java
 java -cp src/ br.com.casadocodigo.Main
@@ -43,5 +47,23 @@ javac --add-modules java.net.http (dir -recurse -ea 0 | % Fullname | sls \.java)
 
 Executando no Windows usando Java 11 e PowerShell:
 java --add-modules java.net.http -cp src br.com.casadocodigo.Main
+
+----------------------------------------------------
+CHAPTER 7 COMMANDS
+----------------------------------------------------
+
+javac -d mods/br.com.casadocodigo \
+--module-path mods/ \
+src/br.com.casadocodigo/module-info.java \
+$(find . -name "*.java")
+
+Para compilar usando PowerShell e Java 11 no Windows:
+javac -d mods/br.com.casadocodigo --module-path mods/ src/br.com.casadocodigo/module-info.java (dir -recurse -ea 0 | % Fullname | sls \.java)
+
+java --module-path mods \
+-m br.com.casadocodigo/br.com.casadocodigo.Main
+
+Para executar usando PowerShell e Java 11 no Windows:
+java --module-path mods -m br.com.casadocodigo/br.com.casadocodigo.Main
 
 ----------------------------------------------------

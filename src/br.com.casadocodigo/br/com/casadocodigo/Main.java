@@ -15,7 +15,7 @@ public class Main {
 			System.out.println(i + " - " + books.get(i).getName());
 		});
 		Scanner scanner = new Scanner(System.in);
-		System.out.print("\nDigite o número do livro que quer comprar: ");
+		System.out.print("\nDigite o numero do livro que quer comprar: ");
 		try {
 			int number = scanner.nextInt();
 			Book book = books.get(number);
@@ -40,6 +40,6 @@ public class Main {
 		System.out.println("\nTalvez você também goste do livro: " + similar.getName());
 	};
 	private static Runnable noSuggestions = () -> {
-		System.out.println("\nNão temos nenhuma sugestão de livro similar no momento");
+		System.out.println("\nNao temos nenhuma sugestao de livro similar no momento");
 	};
 }
