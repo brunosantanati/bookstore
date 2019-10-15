@@ -1,8 +1,8 @@
-package br.com.casadocodigo.service;
+package br.com.casadocodigo.nf.service;
 
 import java.util.concurrent.*;
 import java.util.concurrent.Flow.*;
-import br.com.casadocodigo.model.*;
+import br.com.casadocodigo.nf.model.*;
 
 public class NFEmissor {
     private SubmissionPublisher<NF> publisher;

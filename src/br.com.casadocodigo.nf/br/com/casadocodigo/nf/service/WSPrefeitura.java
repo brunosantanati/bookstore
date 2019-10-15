@@ -1,6 +1,6 @@
-package br.com.casadocodigo.service;
+package br.com.casadocodigo.nf.service;
 
-import br.com.casadocodigo.model.*;
+import br.com.casadocodigo.nf.model.*;
 
 public class WSPrefeitura {
     public static void emit(NF nf) {

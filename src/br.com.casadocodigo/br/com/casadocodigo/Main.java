@@ -1,8 +1,8 @@
 package br.com.casadocodigo;
 
 import br.com.casadocodigo.data.*;
-import br.com.casadocodigo.model.*;
-import br.com.casadocodigo.service.*;
+import br.com.casadocodigo.nf.model.*;
+import br.com.casadocodigo.nf.service.*;
 import java.util.*;
 import java.util.stream.*;
 import java.util.function.*;
@@ -37,7 +37,7 @@ public class Main {
 	}
 
 	private static Consumer<Book> showSimilar = similar -> {
-		System.out.println("\nTalvez você também goste do livro: " + similar.getName());
+		System.out.println("\nTalvez voce tambem goste do livro: " + similar.getName());
 	};
 	private static Runnable noSuggestions = () -> {
 		System.out.println("\nNao temos nenhuma sugestao de livro similar no momento");

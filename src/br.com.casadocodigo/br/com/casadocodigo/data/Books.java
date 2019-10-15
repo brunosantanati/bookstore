@@ -1,6 +1,6 @@
 package br.com.casadocodigo.data;
 
-import br.com.casadocodigo.model.*;
+import br.com.casadocodigo.nf.model.*;
 import java.util.*;
 import java.util.stream.*;
 import java.net.URI;
@@ -14,7 +14,7 @@ public class Books {
       String csv = HttpClient.newHttpClient()
       .send(HttpRequest.newBuilder()
         .uri(new URI("https://turini.github.io/livro-java-9/books.csv"))
-        .GET().build(), 
+        .GET().build(),
       //HttpResponse.BodyHandler.asString()).body(); //Java 9
       HttpResponse.BodyHandlers.ofString()).body(); //Java 11
 
