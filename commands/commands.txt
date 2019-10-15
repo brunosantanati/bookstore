@@ -1,3 +1,23 @@
 cd C:\Users\bruana\Documents\Java9\bookstore
 javac src/br/com/casadocodigo/Main.java
 java -cp src/ br.com.casadocodigo.Main
+
+----------------------------------------------------
+
+javac --add-modules jdk.incubator.httpclient \
+src/br/com/casadocodigo/Main.java \
+src/br/com/casadocodigo/model/Category.java \
+src/br/com/casadocodigo/model/Book.java \
+src/br/com/casadocodigo/data/Books.java
+
+Compilando no Windows usando Java 11 e PowerShell:
+javac --add-modules java.net.http src/br/com/casadocodigo/Main.java src/br/com/casadocodigo/model/Category.java src/br/com/casadocodigo/model/Book.java src/br/com/casadocodigo/data/Books.java
+
+java --add-modules jdk.incubator.httpclient \
+-cp src \
+br.com.casadocodigo.Main
+
+Executando no Windows usando Java 11 e PowerShell:
+java --add-modules java.net.http -cp src br.com.casadocodigo.Main
+
+----------------------------------------------------
