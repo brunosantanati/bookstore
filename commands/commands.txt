@@ -21,3 +21,27 @@ Executando no Windows usando Java 11 e PowerShell:
 java --add-modules java.net.http -cp src br.com.casadocodigo.Main
 
 ----------------------------------------------------
+
+javac --add-modules jdk.incubator.httpclient \
+src/br/com/casadocodigo/Main.java \
+src/br/com/casadocodigo/model/*.java \
+src/br/com/casadocodigo/data/*.java \
+src/br/com/casadocodigo/service/*.java
+
+Compilando no Windows usando Java 11 e PowerShell:
+
+javac --add-modules java.net.http src/br/com/casadocodigo/Main.java src/br/com/casadocodigo/model/*.java src/br/com/casadocodigo/data/*.java src/br/com/casadocodigo/service/*.java
+
+Em ambiente UNIX pode-se usar:
+
+javac --add-modules jdk.incubator.httpclient \
+$(find . -name "*.java")
+
+Em ambiente Windows com PowerShell pode-se usar(JDK 11):
+
+javac --add-modules java.net.http (dir -recurse -ea 0 | % Fullname | sls \.java)
+
+Executando no Windows usando Java 11 e PowerShell:
+java --add-modules java.net.http -cp src br.com.casadocodigo.Main
+
+----------------------------------------------------
