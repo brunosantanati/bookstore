@@ -1,4 +1,28 @@
 ﻿----------------------------------------------------
+MODIFICATIONS REQUIRED TO RUN BOOK EXAMPLES USING JAVA 11
+----------------------------------------------------
+
+In the command line replace:
+java --add-modules jdk.incubator.httpclient
+By:
+java --add-modules java.net.http
+
+In the module-info.java files replace:
+requires jdk.incubator.httpclient; //Java 9
+by:
+requires java.net.http; //Java 11
+
+In the source code replace:
+import jdk.incubator.http.*; //Java 9
+by:
+import java.net.http.*; //Java 11
+
+In the source code replace:
+HttpResponse.BodyHandler.asString()).body();
+by:
+HttpResponse.BodyHandlers.ofString()).body();
+
+----------------------------------------------------
 CHAPTER 6 COMMANDS
 ----------------------------------------------------
 
@@ -8,23 +32,27 @@ java -cp src/ br.com.casadocodigo.Main
 
 ----------------------------------------------------
 
+######## COMMANDS USING LINUX/UNIX AND JAVA 9
+
 javac --add-modules jdk.incubator.httpclient \
 src/br/com/casadocodigo/Main.java \
 src/br/com/casadocodigo/model/Category.java \
 src/br/com/casadocodigo/model/Book.java \
 src/br/com/casadocodigo/data/Books.java
 
-Compilando no Windows usando Java 11 e PowerShell:
-javac --add-modules java.net.http src/br/com/casadocodigo/Main.java src/br/com/casadocodigo/model/Category.java src/br/com/casadocodigo/model/Book.java src/br/com/casadocodigo/data/Books.java
-
 java --add-modules jdk.incubator.httpclient \
 -cp src \
 br.com.casadocodigo.Main
 
-Executando no Windows usando Java 11 e PowerShell:
+######## COMMANDS USING WINDOWS, POWERSHELL AND JAVA 11
+
+javac --add-modules java.net.http src/br/com/casadocodigo/Main.java src/br/com/casadocodigo/model/Category.java src/br/com/casadocodigo/model/Book.java src/br/com/casadocodigo/data/Books.java
+
 java --add-modules java.net.http -cp src br.com.casadocodigo.Main
 
 ----------------------------------------------------
+
+######## COMMANDS USING LINUX/UNIX AND JAVA 9
 
 javac --add-modules jdk.incubator.httpclient \
 src/br/com/casadocodigo/Main.java \
@@ -32,38 +60,44 @@ src/br/com/casadocodigo/model/*.java \
 src/br/com/casadocodigo/data/*.java \
 src/br/com/casadocodigo/service/*.java
 
-Compilando no Windows usando Java 11 e PowerShell:
-
-javac --add-modules java.net.http src/br/com/casadocodigo/Main.java src/br/com/casadocodigo/model/*.java src/br/com/casadocodigo/data/*.java src/br/com/casadocodigo/service/*.java
-
-Em ambiente UNIX pode-se usar:
-
 javac --add-modules jdk.incubator.httpclient \
 $(find . -name "*.java")
 
-Em ambiente Windows com PowerShell pode-se usar(JDK 11):
+java --add-modules jdk.incubator.httpclient \
+-cp src \
+br.com.casadocodigo.Main
+
+######## COMMANDS USING WINDOWS, POWERSHELL AND JAVA 11
+
+javac --add-modules java.net.http src/br/com/casadocodigo/Main.java src/br/com/casadocodigo/model/*.java src/br/com/casadocodigo/data/*.java src/br/com/casadocodigo/service/*.java
 
 javac --add-modules java.net.http (dir -recurse -ea 0 | % Fullname | sls \.java)
 
-Executando no Windows usando Java 11 e PowerShell:
 java --add-modules java.net.http -cp src br.com.casadocodigo.Main
 
 ----------------------------------------------------
 CHAPTER 7 COMMANDS
 ----------------------------------------------------
 
+######## COMMANDS USING LINUX/UNIX AND JAVA 9
+
 javac -d mods/br.com.casadocodigo \
 --module-path mods/ \
 src/br.com.casadocodigo/module-info.java \
 $(find . -name "*.java")
 
-Para compilar usando PowerShell e Java 11 no Windows:
-javac -d mods/br.com.casadocodigo --module-path mods/ src/br.com.casadocodigo/module-info.java (dir -recurse -ea 0 | % Fullname | sls \.java)
-
 java --module-path mods \
 -m br.com.casadocodigo/br.com.casadocodigo.Main
 
+######## COMMANDS USING WINDOWS, POWERSHELL AND JAVA 11
+
+javac -d mods/br.com.casadocodigo --module-path mods/ src/br.com.casadocodigo/module-info.java (dir -recurse -ea 0 | % Fullname | sls \.java)
+
+java --module-path mods -m br.com.casadocodigo/br.com.casadocodigo.Main
+
 ----------------------------------------------------
+
+######## COMMANDS USING LINUX/UNIX AND JAVA 9
 
 rm -rf mods/
 
@@ -72,38 +106,20 @@ javac -d mods/br.com.casadocodigo.nf \
 src/br.com.casadocodigo.nf/module-info.java
 $(find src/br.com.casadocodigo.nf -name "*.java")
 
-----------
-Para compilar usando PowerShell e Java 11 no Windows:
-javac -d mods/br.com.casadocodigo.nf --module-path mods src/br.com.casadocodigo.nf/module-info.java (dir src/br.com.casadocodigo.nf -recurse -ea 0 | % Fullname | sls \.java)
-
-Nos arquivos module-info.java substituir:
-requires jdk.incubator.httpclient; //Java 9
-Por:
-requires java.net.http; //Java 11
-
-Nos arquivos fontes também substituir:
-import jdk.incubator.http.*; //Java 9
-Por:
-import java.net.http.*; //Java 11
-
-Substituir:
-HttpResponse.BodyHandler.asString()).body();
-Por:
-HttpResponse.BodyHandlers.ofString()).body();
-----------
-
 javac -d mods/br.com.casadocodigo \
 --module-path mods \
 src/br.com.casadocodigo/module-info.java
 $(find src/br.com.casadocodigo -name "*.java")
 
-Para compilar usando PowerShell e Java 11 no Windows:
-javac -d mods/br.com.casadocodigo --module-path mods src/br.com.casadocodigo/module-info.java (dir src/br.com.casadocodigo -recurse -ea 0 | % Fullname | sls \.java)
-
 java --module-path mods \
 -m br.com.casadocodigo/br.com.casadocodigo.Main
 
-Para executar usando PowerShell e Java 11 no Windows:
+######## COMMANDS USING WINDOWS, POWERSHELL AND JAVA 11
+
+javac -d mods/br.com.casadocodigo.nf --module-path mods src/br.com.casadocodigo.nf/module-info.java (dir src/br.com.casadocodigo.nf -recurse -ea 0 | % Fullname | sls \.java)
+
+javac -d mods/br.com.casadocodigo --module-path mods src/br.com.casadocodigo/module-info.java (dir src/br.com.casadocodigo -recurse -ea 0 | % Fullname | sls \.java)
+
 java --module-path mods -m br.com.casadocodigo/br.com.casadocodigo.Main
 
 ----------------------------------------------------
