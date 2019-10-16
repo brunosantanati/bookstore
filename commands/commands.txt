@@ -123,3 +123,42 @@ javac -d mods/br.com.casadocodigo --module-path mods src/br.com.casadocodigo/mod
 java --module-path mods -m br.com.casadocodigo/br.com.casadocodigo.Main
 
 ----------------------------------------------------
+
+######## COMMANDS USING LINUX/UNIX AND JAVA 9
+
+javac -d mods/br.com.casadocodigo.domain \
+--module-path mods \
+src/br.com.casadocodigo.domain/module-info.java \
+$(find src/br.com.casadocodigo.domain -name "*.java")
+
+javac -d mods/br.com.casadocodigo.http \
+--module-path mods \
+src/br.com.casadocodigo.http/module-info.java \
+$(find src/br.com.casadocodigo.http -name "*.java")
+
+javac -d mods/br.com.casadocodigo.nf \
+--module-path mods \
+src/br.com.casadocodigo.nf/module-info.java \
+$(find src/br.com.casadocodigo.nf -name "*.java")
+
+javac -d mods/br.com.casadocodigo \
+--module-path mods \
+src/br.com.casadocodigo/module-info.java \
+$(find src/br.com.casadocodigo -name "*.java")
+
+java --module-path mods \
+-m br.com.casadocodigo/br.com.casadocodigo.Main
+
+######## COMMANDS USING WINDOWS, POWERSHELL AND JAVA 11
+
+javac -d mods/br.com.casadocodigo.domain --module-path mods src/br.com.casadocodigo.domain/module-info.java (dir src/br.com.casadocodigo.domain -recurse -ea 0 | % Fullname | sls \.java)
+
+javac -d mods/br.com.casadocodigo.http --module-path mods src/br.com.casadocodigo.http/module-info.java (dir src/br.com.casadocodigo.http -recurse -ea 0 | % Fullname | sls \.java)
+
+javac -d mods/br.com.casadocodigo.nf --module-path mods src/br.com.casadocodigo.nf/module-info.java (dir src/br.com.casadocodigo.nf -recurse -ea 0 | % Fullname | sls \.java)
+
+javac -d mods/br.com.casadocodigo --module-path mods src/br.com.casadocodigo/module-info.java (dir src/br.com.casadocodigo -recurse -ea 0 | % Fullname | sls \.java)
+
+java --module-path mods -m br.com.casadocodigo/br.com.casadocodigo.Main
+
+----------------------------------------------------

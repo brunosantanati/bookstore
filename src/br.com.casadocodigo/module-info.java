@@ -1,5 +1,5 @@
 module br.com.casadocodigo {
-    //requires jdk.incubator.httpclient; //Java 9
-    requires java.net.http; //Java 11
     requires br.com.casadocodigo.nf;
+    requires br.com.casadocodigo.domain;
+    requires br.com.casadocodigo.http;
 }

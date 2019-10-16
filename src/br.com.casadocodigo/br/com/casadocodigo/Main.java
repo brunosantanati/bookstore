@@ -1,7 +1,7 @@
 package br.com.casadocodigo;
 
-import br.com.casadocodigo.data.*;
-import br.com.casadocodigo.nf.model.*;
+import br.com.casadocodigo.http.*;
+import br.com.casadocodigo.model.*;
 import br.com.casadocodigo.nf.service.*;
 import java.util.*;
 import java.util.stream.*;
